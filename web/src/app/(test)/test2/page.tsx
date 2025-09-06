@@ -8,8 +8,6 @@ interface LanguageOption {
   label: string;
 }
 
-
-
 type SupportedLanguage = 
   | "javascript" 
   | "typescript" 
@@ -57,6 +55,19 @@ export default function CodeEditor(): JSX.Element {
         moduleResolution: monaco.languages.typescript.ModuleResolutionKind.NodeJs,
         allowSyntheticDefaultImports: true,
         esModuleInterop: true,
+      });
+
+      // Disable diagnostics (error squiggles) for TypeScript and JavaScript
+      monaco.languages.typescript.typescriptDefaults.setDiagnosticsOptions({
+        noSemanticValidation: true,
+        noSyntaxValidation: true,
+        noSuggestionDiagnostics: true,
+      });
+
+      monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions({
+        noSemanticValidation: true,
+        noSyntaxValidation: true,
+        noSuggestionDiagnostics: true,
       });
 
       // Add React type definitions
@@ -227,7 +238,7 @@ export default function CodeEditor(): JSX.Element {
           language={language}
           value={code}
           onChange={handleEditorChange}
-          theme="one-dark-pro-custom"
+          theme="myTheme"
           options={{
             fontSize: fontSize,
             fontFamily: "'JetBrains Mono', 'Fira Code', 'Consolas', monospace",
@@ -241,7 +252,10 @@ export default function CodeEditor(): JSX.Element {
             renderWhitespace: 'selection',
             cursorBlinking: 'smooth',
             cursorSmoothCaretAnimation: "on",
-            
+            smoothScrolling: true,
+            suggest: {
+              snippetsPreventQuickSuggestions:false
+            }
           }}
         />
       </div>
