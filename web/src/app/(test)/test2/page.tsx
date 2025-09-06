@@ -97,120 +97,25 @@ export default function CodeEditor(): JSX.Element {
         'ts:react.d.ts'
       );
 
-      monaco.editor.defineTheme("one-dark-pro-custom", {
+       monaco.editor.defineTheme("myTheme", {
         base: "vs-dark",
         inherit: true,
         rules: [
-          // Comments
-          { token: "comment", foreground: "5c6370", fontStyle: "italic" },
-          
-          // Keywords
-          { token: "keyword", foreground: "c678dd" },
-          { token: "keyword.control", foreground: "c678dd" },
-          { token: "storage", foreground: "c678dd" },
-          { token: "storage.type", foreground: "c678dd" },
-          
-          // Strings
-          { token: "string", foreground: "98c379" },
-          { token: "string.quoted", foreground: "98c379" },
-          { token: "string.template", foreground: "98c379" },
-          
-          // Numbers
-          { token: "number", foreground: "d19a66" },
-          { token: "constant.numeric", foreground: "d19a66" },
-          
-          // Variables
-          { token: "variable", foreground: "e06c75" },
-          { token: "variable.other", foreground: "e06c75" },
-          { token: "variable.parameter", foreground: "e06c75" },
-          
-          // Constants
-          { token: "constant", foreground: "d19a66" },
-          { token: "constant.language", foreground: "d19a66" },
-          { token: "constant.character", foreground: "d19a66" },
-          
-          // Operators
-          { token: "keyword.operator", foreground: "56b6c2" },
-          { token: "punctuation.separator", foreground: "56b6c2" },
-          
-          // Functions
-          { token: "entity.name.function", foreground: "61afef" },
-          { token: "support.function", foreground: "61afef" },
-          { token: "meta.function-call", foreground: "61afef" },
-          
-          // Types and Classes
-          { token: "entity.name.type", foreground: "e5c07b" },
-          { token: "entity.name.class", foreground: "e5c07b" },
-          { token: "support.type", foreground: "e5c07b" },
-          { token: "support.class", foreground: "e5c07b" },
-          { token: "entity.name.type.interface", foreground: "e5c07b" },
-          
-          // TypeScript specific
-          { token: "storage.type.ts", foreground: "c678dd" },
-          { token: "keyword.operator.type", foreground: "56b6c2" },
-          { token: "punctuation.definition.typeparameters", foreground: "abb2bf" },
-          { token: "meta.type.annotation", foreground: "e5c07b" },
-          
-          // Punctuation
-          { token: "punctuation", foreground: "abb2bf" },
-          { token: "punctuation.definition", foreground: "abb2bf" },
-          { token: "punctuation.section", foreground: "abb2bf" },
-          { token: "punctuation.terminator", foreground: "abb2bf" },
-          
-          // HTML/XML Tags
-          { token: "entity.name.tag", foreground: "e06c75" },
-          { token: "entity.other.attribute-name", foreground: "d19a66" },
-          
-          // CSS
-          { token: "support.type.property-name", foreground: "56b6c2" },
-          { token: "support.constant.property-value", foreground: "d19a66" },
-          
-          // JavaScript/TypeScript specific
-          { token: "support.type.object.console", foreground: "e06c75" },
-          { token: "keyword.operator.expression", foreground: "c678dd" },
-          { token: "meta.object-literal.key", foreground: "e06c75" },
-          
-          // Python specific
-          { token: "support.type.python", foreground: "56b6c2" },
-          { token: "variable.parameter.function.python", foreground: "d19a66" },
-          
-          // Java specific  
-          { token: "storage.type.java", foreground: "e5c07b" },
-          { token: "meta.method.java", foreground: "61afef" }
+          { token: "keyword", foreground: "C678DD" },
+          { token: "string", foreground: "98C379" },
+          { token: "number", foreground: "D19A66" },
+          { token: "type", foreground: "61DAFB" },
+          { token: "identifier", foreground: "E06C75" },
         ],
         colors: {
-          // Editor colors
-          "editor.background": "#16191d",
-          "editor.foreground": "#abb2bf",
-          "editorLineNumber.foreground": "#636d83",
-          "editorLineNumber.activeForeground": "#abb2bf",
-          "editor.selectionBackground": "#67769660",
-          "editor.lineHighlightBackground": "#2c313c",
-          "editorCursor.foreground": "#528bff",
-          "editorWhitespace.foreground": "#3b4048",
-          "editor.wordHighlightBackground": "#d2e0ff2f",
-          "editor.wordHighlightStrongBackground": "#abb2bf26",
-          "editor.findMatchBackground": "#d19a6644",
-          "editor.findMatchHighlightBackground": "#ffffff22",
-          
-          // Bracket matching
-          "editorBracketMatch.background": "#515a6b",
-          "editorBracketMatch.border": "#515a6b",
-          
-          // Scrollbar
-          "scrollbarSlider.background": "#4e566660",
-          "scrollbarSlider.hoverBackground": "#5a637580",
-          "scrollbarSlider.activeBackground": "#747d9180",
-          
-          // Overview ruler
-          "editorOverviewRuler.addedBackground": "#109868",
-          "editorOverviewRuler.deletedBackground": "#9A353D",
-          "editorOverviewRuler.modifiedBackground": "#948B60"
-        }
+          "editor.background": "#16191D",
+          "editorLineNumber.foreground": "#ABB2BF",
+          "editor.foreground": "#ABB2BF",
+        },
       });
-      
-      // Set the theme as default
-      monaco.editor.setTheme("one-dark-pro-custom");
+
+      // Set the theme
+      monaco.editor.setTheme("myTheme");
     }
 
 
