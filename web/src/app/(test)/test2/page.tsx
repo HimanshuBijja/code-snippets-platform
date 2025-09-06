@@ -1,7 +1,6 @@
 "use client";
 import { JSX, useEffect, useState } from "react";
-import Editor, { useMonaco } from "@monaco-editor/react";
-import * as monaco from 'monaco-editor';
+import Editor,{ useMonaco } from "@monaco-editor/react";
 
 interface LanguageOption {
   value: string;

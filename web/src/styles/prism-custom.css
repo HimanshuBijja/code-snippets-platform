@@ -1,0 +1,57 @@
+/* styles/prism-custom.css */
+
+/* Override default styles */
+.code-block-container {
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.code-header {
+  border-bottom: 1px solid #374151;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+}
+
+/* Custom scrollbar for code blocks */
+pre[class*="language-"]::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Line numbers styling */
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid #374151;
+  padding-right: 1rem;
+  margin-right: 1rem;
+}
+
+.line-numbers-rows > span:before {
+  color: #6b7280;
+}
+
+/* Responsive code blocks */
+@media (max-width: 768px) {
+  pre[class*="language-"] {
+    font-size: 14px;
+    padding: 1rem;
+  }
+  
+  .line-numbers .line-numbers-rows {
+    padding-right: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
