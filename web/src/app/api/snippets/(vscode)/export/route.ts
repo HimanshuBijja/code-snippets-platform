@@ -1,4 +1,4 @@
-// web/src/app/api/snippets/(vscode)/upload/route.ts
+// web/src/app/api/snippets/(vscode)/export/route.ts
 import { NextResponse } from 'next/server';
 import { connectDB } from '@/lib/dbConnect';
 import Snippet from '@/models/Snippet';
@@ -16,10 +16,10 @@ export async function POST(req: Request) {
 
         const body = await req.json();
         const { code, title, language, tags = [] } = body || {};
-
-        // Validate code presence and size
-        if ((!code || typeof code !== 'string' || code.trim().length === 0) || (!title || typeof title !== 'string' || title.trim().length === 0)) {
-            return NextResponse.json({ ok: false, message: 'Missing `code` / `title` in request body!' }, { status: 400 });
+        
+        // Validate the presence of 'code', 'title', 'language'...
+        if ((!code || typeof code !== 'string' || code.trim().length === 0) || (!title || typeof title !== 'string' || title.trim().length === 0) || (!language || typeof language !== 'string' || language.trim().length === 0)) {
+            return NextResponse.json({ ok: false, message: 'Missing `code` / `title` / `language` in request body!' }, { status: 400 });
         }
 
         if (code.length > MAX_SNIPPET_SIZE) {   // Validate 'code-snippet' size...
