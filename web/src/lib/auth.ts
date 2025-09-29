@@ -86,6 +86,8 @@ export const authOptions: NextAuthOptions = {
                     if (!isPasswordValid) throw new Error("Invalid password");
                 }
 
+                await UserModel.findByIdAndUpdate(user._id, { last_login: new Date() }); // Update `last_login` time...
+
                 return {
                     id: (user as { _id: { toString(): string } })._id.toString(),
                     name: user.username,
@@ -125,9 +127,13 @@ export const authOptions: NextAuthOptions = {
                 await UserModel.create({
                     email: user.email,
                     username: user.name?.split(" ").join("_").toLowerCase() || "user",
+                    last_login: new Date(), // Update `last_login` time...
                     is_from_oauth: true,
                     isVerified: true, // You can choose to mark OAuth users as verified
                 });
+            }
+            else {
+                await UserModel.findByIdAndUpdate(exists._id, { last_login: new Date() }); // Update `last_login` time...
             }
             return true;
         },

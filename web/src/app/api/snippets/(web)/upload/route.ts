@@ -42,14 +42,29 @@ export async function POST(req: NextRequest) {
         const snippet = await Snippet.create({
             title: title || `Snippet from ${user.username}`,
             code,
-            language: language || 'text',
+            lang: language || 'text',
             tags,
-            publisherId: user._id
+            publisherId: user._id,
+            publisherName: user.username
         });
+
+        // Return minimal snippet fields (avoid leaking DB internals)
+        const safe = {
+            id: snippet._id?.toString(),
+            title: snippet.title,
+            description: snippet.description,
+            code: snippet.code,
+            language: snippet.lang,
+            tags: snippet.tags,
+            publisherName: snippet.publisherName,
+            publisherId: snippet.publisherId,
+            createdAt: snippet.createdAt,
+            updatedAt: snippet.updatedAt,
+        };
 
         return NextResponse.json({
             success: true,
-            snippet,
+            snippet: safe,
             message: 'Snippet uploaded successfully!',
         }, { status: 201 });
     } catch (err: any) {

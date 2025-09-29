@@ -37,9 +37,10 @@ export async function POST(req: Request) {
         const snippet = await Snippet.create({
             title: title || `Snippet from ${user.username}`,
             code,
-            language: language || 'text',
+            lang: language,
             tags,
-            publisherId: user._id
+            publisherId: user._id,
+            publisherName: user.username,
         });
 
         return NextResponse.json({
@@ -49,6 +50,7 @@ export async function POST(req: Request) {
             message: 'Snippet uploaded successfully!',
         }, { status: 201 });
     } catch (err: any) {
+        // console.error(err);
         return NextResponse.json({ ok: false, message: err.message || 'Upload failed!' }, { status: 500 });
     }
 }

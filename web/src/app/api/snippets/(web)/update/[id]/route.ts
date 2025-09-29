@@ -30,7 +30,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
         if (code && typeof code === 'string' && code.trim().length > 0)
             updateData.code = code;
         if (language && typeof language === 'string' && language.trim().length > 0)
-            updateData.language = language;
+            updateData.lang = language;
         if (tags && Array.isArray(tags) && tags.length > 0)
             updateData.tags = tags;
 
@@ -50,9 +50,23 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
 
         const snippet = await Snippet.findByIdAndUpdate(snippetId, updateData, { new: true });
 
+        // Return minimal snippet fields (avoid leaking DB internals)
+        const safe = {
+            id: snippet._id?.toString(),
+            title: snippet.title,
+            description: snippet.description,
+            code: snippet.code,
+            language: snippet.lang,
+            tags: snippet.tags,
+            publisherName: snippet.publisherName,
+            publisherId: snippet.publisherId,
+            createdAt: snippet.createdAt,
+            updatedAt: snippet.updatedAt,
+        };
+
         return NextResponse.json({
             success: true,
-            snippet,
+            snippet: safe,
             message: 'Snippet Updated successfully!',
         }, { status: 200 });
     } catch (err: any) {
