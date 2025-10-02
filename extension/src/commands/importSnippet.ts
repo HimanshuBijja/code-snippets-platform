@@ -3,7 +3,6 @@ import * as vscode from 'vscode';
 import { fetchSnippetById } from '../utils/snippet';
 import { log } from '../utils/logger';
 
-
 export async function registerImportSnippet(context: vscode.ExtensionContext) {
     const disposable = vscode.commands.registerCommand('codesnippets.importSnippet', async () => {
         const editor = vscode.window.activeTextEditor;
@@ -20,7 +19,7 @@ export async function registerImportSnippet(context: vscode.ExtensionContext) {
             }
 
             const res = await fetchSnippetById(id);
-            if (!res.ok) {
+            if (!res.ok || !res.snippet) {
                 log(`❌ Failed to import snippet: ${res?.message || 'unknown'}`, 'warn');
                 return;
             }
@@ -41,9 +40,9 @@ export async function registerImportSnippet(context: vscode.ExtensionContext) {
                 editBuilder.insert(top, contentToInsert);
             });
 
-            log(`✅ Imported Snippet '${snippet?.title}' into file '${editor.document.fileName}'!`, 'info');
+            log(`Imported Snippet '${snippet?.title}' into file '${editor.document.fileName}'!`, 'info');
         } catch (err: any) {
-            log(`❌ Import error: ${err.message || 'unknown error'}`, 'error');
+            log(`❌ Snippet Import error: ${err.message || 'unknown error'}`, 'error');
         }
     });
     context.subscriptions.push(disposable);

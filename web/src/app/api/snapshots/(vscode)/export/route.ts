@@ -19,11 +19,11 @@ export async function POST(req: Request) {
         const user = resp.user;
 
         const body = await req.json();
-        const { title, description = '', settings = {}, extensions = [], keybindings = [], workspaceConfig = {} } = body || {};
+        const { title, description = '', settings = {}, extensions = [], keybindings = [] } = body || {};
 
         // Validate required fields
-        if ((!title || typeof title !== 'string' || title.trim().length === 0) || (!settings || typeof settings !== 'object') || (!Array.isArray(extensions))) {
-            return NextResponse.json({ ok: false, message: 'Missing `title` / `settings` / `extensions` in request body!' }, { status: 400 });
+        if ((!title || typeof title !== 'string' || title.trim().length === 0) || (!Array.isArray(extensions) || extensions.length === 0)) {
+            return NextResponse.json({ ok: false, message: 'Missing `title` / `extensions` in request body!' }, { status: 400 });
         }
 
         // Validate the `limits / sizes` of 'Snapshots & Extensions'...
@@ -34,7 +34,7 @@ export async function POST(req: Request) {
             );
         }
 
-        const snapshotSize = JSON.stringify({ settings, keybindings, workspaceConfig }).length;
+        const snapshotSize = JSON.stringify({ settings, keybindings }).length;
         if (snapshotSize > MAX_SNAPSHOT_SIZE) {
             return NextResponse.json(
                 { ok: false, message: `Snapshot too large, Max allowed size is ${MAX_SNAPSHOT_SIZE} characters!` },
@@ -50,7 +50,6 @@ export async function POST(req: Request) {
             settings,
             extensions,
             keybindings,
-            workspaceConfig,
             publisherId: user._id,
             publisherName: user.username,
         });

@@ -28,7 +28,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
         const snapshotId = new mongoose.Types.ObjectId(id);   // Convert to ObjectId
 
         const body = await req.json();
-        const { title, description, settings, extensions, keybindings, workspaceConfig } = body || {};
+        const { title, description, settings, extensions, keybindings } = body || {};
 
         // Build dynamic update-object (only update fields provided by user and valid)
         const updateData: Record<string, any> = {};
@@ -42,8 +42,6 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
             updateData.extensions = extensions;
         if (keybindings && Array.isArray(keybindings))
             updateData.keybindings = keybindings;
-        if (workspaceConfig && typeof workspaceConfig === 'object')
-            updateData.workspaceConfig = workspaceConfig;
 
         if (Object.keys(updateData).length === 0) {
             return NextResponse.json({ success: false, message: 'Missing valid fields in request body to update!' }, { status: 400 });
@@ -57,7 +55,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
             );
         }
 
-        const snapshotSize = JSON.stringify({ settings, keybindings, workspaceConfig }).length;
+        const snapshotSize = JSON.stringify({ settings, keybindings }).length;
         if (snapshotSize > MAX_SNAPSHOT_SIZE) {
             return NextResponse.json(
                 { ok: false, message: `Snapshot too large, Max allowed size is ${MAX_SNAPSHOT_SIZE} characters!` },
@@ -78,7 +76,6 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
             settings: snapshot.settings,
             extensions: snapshot.extensions,
             keybindings: snapshot.keybindings,
-            workspaceConfig: snapshot.workspaceConfig,
 
             publisherName: snapshot.publisherName,
             publisherId: snapshot.publisherId,

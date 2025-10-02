@@ -12,7 +12,6 @@ export interface ISnapshot extends mongoose.Document {
     settings: Record<string, any>; // vscode `settings.json`
     extensions: string[];          // list of `extension-IDs`
     keybindings?: Record<string, any>[]; // vscode `keybindings.json`
-    workspaceConfig?: Record<string, any>; // workspace-specific `configs`
 
     createdAt: Date;
     updatedAt: Date;
@@ -29,7 +28,6 @@ const SnapshotSchema = new Schema<ISnapshot>(
         settings: { type: Schema.Types.Mixed, default: {} },
         extensions: { type: [String], default: [] },
         keybindings: { type: [Schema.Types.Mixed], default: [] },
-        workspaceConfig: { type: Schema.Types.Mixed, default: {} },
     },
     { timestamps: true }
 );

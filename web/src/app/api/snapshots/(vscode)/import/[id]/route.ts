@@ -32,7 +32,6 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
             settings: snapshot.settings,
             extensions: snapshot.extensions,
             keybindings: snapshot.keybindings,
-            workspaceConfig: snapshot.workspaceConfig,
 
             publisherName: snapshot.publisherName,
             publisherId: snapshot.publisherId,
