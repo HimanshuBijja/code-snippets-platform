@@ -5,13 +5,13 @@ import { getUserSettingsPath, getUserKeybindingsPath } from '../utils/vscodePath
 import { log } from '../utils/logger';
 
 export async function registerImportSnapshot(context: vscode.ExtensionContext) {
-    const disposable = vscode.commands.registerCommand('codesnippets.importSnapshot', async () => {
+    const disposable = vscode.commands.registerCommand('codesnippets.importSnapshot', async (args?: { id?: string }) => {
         try {
             // 1: Prompt user for Snapshot ID
-            const id = await vscode.window.showInputBox({ prompt: 'Enter snapshot `id` to import' });
+            let id = args?.id;  // Default value of `id`...
             if (!id) {
-                // log('User cancelled snapshot import.', 'warn');
-                return;
+                id = await vscode.window.showInputBox({ prompt: 'Enter snapshot `id` to import' });
+                if (!id) return; // user canceled input
             }
 
             const res = await fetchSnapshotById(id);

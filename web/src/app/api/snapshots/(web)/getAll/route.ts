@@ -100,7 +100,7 @@ export async function GET(req: Request) {
                     updatedAt: s.updatedAt,
                 })),
                 pagination: {
-                    totalSnapshots: totalCount,
+                    totalCount,
                     limit,
                     totalPages: Math.ceil(totalCount / limit),
 

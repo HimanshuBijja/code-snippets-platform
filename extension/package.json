@@ -77,6 +77,10 @@
       {
         "command": "codesnippets.openSnapshotFiles",
         "title": "Open VSCode Dev-Env Snapshot Files : CodeSnippets"
+      },
+      {
+        "command": "codesnippets.search",
+        "title": "Search Snippets / Snapshots : CodeSnippets"
       }
     ],
     "menus": {
