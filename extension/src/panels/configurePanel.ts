@@ -239,7 +239,7 @@ export function getConfigurePanelHtml(): string {
         return;
       }
 
-      showMessage("🔍 Verifying key...", "");
+      showMessage("Verifying key...", "");
       currentStep = 2;
       updateProgress(currentStep);
 
