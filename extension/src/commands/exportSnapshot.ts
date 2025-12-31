@@ -51,7 +51,6 @@ export async function registerExportSnapshot(context: vscode.ExtensionContext) {
                 },
             });
             if (!title) { // user canceled input
-                log('Upload cancelled!', 'warn');
                 return;
             }
 
@@ -73,7 +72,7 @@ export async function registerExportSnapshot(context: vscode.ExtensionContext) {
                 if (action === open && res.url) {
                     vscode.env.openExternal(vscode.Uri.parse(res.url));
                 }
-                // log(`✅ Snapshot uploaded successfully with ID: ${res.id}`, 'info');
+                // log(`Snapshot uploaded successfully with ID: ${res.id}`, 'info');
             } else {
                 log(`Upload failed: ${res.message}`, 'warn');
             }

@@ -52,7 +52,7 @@ export async function registerImportSnapshot(context: vscode.ExtensionContext) {
             // 5. Final Log-Message for 'user'...
             log(`Snapshot '${snapshot.title}' imported successfully!\nInstalled ${newExts} new extension(s),\nMerged 'settings.json' & 'keybindings.json with ${newSettings + newKeybindings} new value(s)!'`, 'info');
         } catch (err: any) {
-            log(`Snapshot Import Error: ${err.message || 'unknown error'}`, 'error');
+            log(`Snapshot Import error: ${err.message || 'unknown error'}`, 'error');
         }
     });
     context.subscriptions.push(disposable);

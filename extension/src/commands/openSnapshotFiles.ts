@@ -28,7 +28,7 @@ export async function registerOpenSnapshotFiles(context: vscode.ExtensionContext
             // Open the file in VSCode editor
             const doc = await vscode.workspace.openTextDocument(vscode.Uri.file(filePath));
             await vscode.window.showTextDocument(doc);
-            log(`Opened file: ${filePath}`, 'info');
+            // log(`Opened file: ${filePath}`, 'info');
         } catch (err: any) {
             log(`Failed to open file: ${err.message || 'unknown error'}`, 'error');
         }
