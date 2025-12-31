@@ -15,7 +15,7 @@
 A productivity platform to import/export/share VS Code snippets & environment snapshots — with cloud sync and web management.
 
 
-## Links
+## Live Links
 - [![VSCode Marketplace](https://img.shields.io/badge/Marketplace-Snipzen-blue)](https://marketplace.visualstudio.com/items?itemName=srinivas-batthula.jump-search)
 - [![Website](https://img.shields.io/badge/Website-snipzen.vercel.app-blue)](https://snipzen.com)
 
