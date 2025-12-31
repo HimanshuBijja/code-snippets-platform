@@ -7,7 +7,7 @@ export async function registerImportSnippet(context: vscode.ExtensionContext) {
     const disposable = vscode.commands.registerCommand('codesnippets.importSnippet', async (args?: { id?: string }) => {
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
-            log('No active editor — Open a file first to insert the snippet!', 'error');
+            log('No active editor — Open a file to insert the snippet!', 'error');
             return;
         }
 
@@ -20,7 +20,7 @@ export async function registerImportSnippet(context: vscode.ExtensionContext) {
 
             const res = await fetchSnippetById(id);
             if (!res.ok || !res.snippet) {
-                log(`❌ Failed to import snippet: ${res?.message || 'unknown'}`, 'warn');
+                log(`Failed to import snippet: ${res?.message || 'unknown'}`, 'warn');
                 return;
             }
 
@@ -42,7 +42,7 @@ export async function registerImportSnippet(context: vscode.ExtensionContext) {
 
             log(`Imported Snippet '${snippet?.title}' into file '${editor.document.fileName}'!`, 'info');
         } catch (err: any) {
-            log(`❌ Snippet Import error: ${err.message || 'unknown error'}`, 'error');
+            log(`Snippet Import Error: ${err.message || 'unknown error'}`, 'error');
         }
     });
     context.subscriptions.push(disposable);

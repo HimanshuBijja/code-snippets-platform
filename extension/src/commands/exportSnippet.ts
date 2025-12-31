@@ -18,12 +18,12 @@ export async function registerExportSnippet(context: vscode.ExtensionContext) {
             // 2. Copy the Selected Code...
             const editor = vscode.window.activeTextEditor;
             if (!editor) {
-                log('No active editor — please open a file and select code.', 'error');
+                log('No active editor — Open a file and select code to Export', 'error');
                 return;
             }
             const selectedCode = editor.document.getText(editor.selection);
             if (!selectedCode || selectedCode.trim().length === 0) {
-                log('Please select some code to export!', 'error');
+                log('Select some code to Export!', 'error');
                 return;
             }
 
@@ -45,7 +45,7 @@ export async function registerExportSnippet(context: vscode.ExtensionContext) {
                 },
             });
             if (!title) { // user canceled input
-                log('User Cancelled the Upload!', 'warn');
+                log('Upload Cancelled!', 'warn');
                 return;
             }
 
@@ -68,10 +68,10 @@ export async function registerExportSnippet(context: vscode.ExtensionContext) {
                 }
                 // log(`✅ Snippet uploaded! ID copied to clipboard: ${res.id}`, 'info');
             } else {
-                log(`❌ Upload failed: ${res.message}`, 'warn');
+                log(`Upload failed: ${res.message}`, 'warn');
             }
         } catch (err: any) {
-            log(`❌ Upload Snippet error: ${err.message || 'unknown error'}`, 'error');
+            log(`Upload Snippet Error: ${err.message || 'unknown error'}`, 'error');
         }
     });
     context.subscriptions.push(disposable);

@@ -76,7 +76,7 @@ export async function registerSearch(context: vscode.ExtensionContext) {
                 break;      // 'Stop' this `Loop` completely, If user selects any specific 'Snippet / Snapshot'...
             }
         } catch (err: any) {
-            log(`❌ Search command error: ${err.message || 'unknown error'}`, 'error');
+            log(`Search Command Error: ${err.message || 'unknown error'}`, 'error');
         }
     });
     context.subscriptions.push(disposable);

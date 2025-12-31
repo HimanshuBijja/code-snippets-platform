@@ -51,7 +51,7 @@ export async function registerExportSnapshot(context: vscode.ExtensionContext) {
                 },
             });
             if (!title) { // user canceled input
-                log('User Cancelled the Export!', 'warn');
+                log('Upload cancelled!', 'warn');
                 return;
             }
 
@@ -75,10 +75,10 @@ export async function registerExportSnapshot(context: vscode.ExtensionContext) {
                 }
                 // log(`✅ Snapshot uploaded successfully with ID: ${res.id}`, 'info');
             } else {
-                log(`❌ Upload failed: ${res.message}`, 'warn');
+                log(`Upload failed: ${res.message}`, 'warn');
             }
         } catch (err: any) {
-            log(`❌ Export snapshot error: ${err.message || 'unknown error'}`, 'error');
+            log(`Export Snapshot Error: ${err.message || 'unknown error'}`, 'error');
         }
     });
     context.subscriptions.push(disposable);

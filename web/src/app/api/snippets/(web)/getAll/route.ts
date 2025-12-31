@@ -111,6 +111,7 @@ export async function GET(req: Request) {
                     code: s.code,
                     language: s.lang,
                     tags: s.tags,
+                    code: s.code,
 
                     createdAt: s.createdAt,
                     updatedAt: s.updatedAt,
