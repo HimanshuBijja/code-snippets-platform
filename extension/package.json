@@ -125,8 +125,8 @@
       },
       {
         "command": "codesnippets.importSnapshot",
-        "key": "ctrl+shift+p",
-        "mac": "cmd+shift+p"
+        "key": "ctrl+shift+t",
+        "mac": "cmd+shift+t"
       },
       {
         "command": "codesnippets.openSnapshotFiles",
