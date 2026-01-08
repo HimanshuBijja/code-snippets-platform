@@ -40,7 +40,7 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 #### Through Command Palette
 
 1. Open Command Palette. (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>)
-2. Run **"CodeSnippets: intro"**.
+2. Run **"SnipZen: intro"**.
 3. You can perform all tasks from this panel.
 
 #### Through Keyboard Shortcut
@@ -55,14 +55,14 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 #### Through Editor Context Menu
 
 1. Select the code in the editor.
-2. Right-click and choose **"CodeSnippets: Export Code Snippet"**.
+2. Right-click and choose **"SnipZen: Export Code Snippet"**.
 3. Confirm the export.
 
 #### Through Command Palette
 
 1. Select the code in the editor.
 2. Open Command Palette. (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>)
-3. Run `CodeSnippets: Export Code Snippet`.
+3. Run `SnipZen: Export Code Snippet`.
 
 #### Through Keyboard Shortcut
 
@@ -78,7 +78,7 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 #### Through Command Palette
 
 1. Open Command Palette.
-2. Run `CodeSnippets: Import Code Snippet`.
+2. Run `SnipZen: Import Code Snippet`.
 3. Enter Snippet-ID to import.
 
 #### Through Keyboard Shortcut
@@ -94,7 +94,7 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 #### Through Command Palette
 
 1. Open Command Palette.
-2. Run `CodeSnippets: Export Dev-Env Snapshot`.
+2. Run `SnipZen: Export Dev-Env Snapshot`.
 3. Confirm snapshot export.
 
 #### Through Keyboard Shortcut
@@ -109,7 +109,7 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 #### Through Command Palette
 
 1. Open Command Palette.
-2. Run `CodeSnippets: Import Dev-Env Snapshot`.
+2. Run `SnipZen: Import Dev-Env Snapshot`.
 3. Enter Snapshot-ID to import.
 
 #### Through Keyboard Shortcut
@@ -124,7 +124,7 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 #### Through Command Palette
 
 1. Hit <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> ( <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>P</kbd> on macOS )
-2. Run `CodeSnippets: Search`.
+2. Run `SnipZen: Search`.
 3. Type your query and press <kbd>Enter</kbd>.
 
 #### Through Keyboard Shortcut
