@@ -35,7 +35,7 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 
 ## Usage
 
-### Open Menu / Intro panel
+### 1. Open Menu / Intro panel
 
 #### Through Command Palette
 
@@ -50,7 +50,7 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 
 ![Preview](./assets/usages/intro_panel.gif)
 
-### Export a code snippet
+### 2. Export a code snippet
 
 #### Through Editor Context Menu
 
@@ -73,7 +73,7 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 ![Preview](./assets/usages/export_snippet.gif)
 
 
-### Import a code snippet
+### 3. Import a code snippet
 
 #### Through Command Palette
 
@@ -89,7 +89,7 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 
 ![Preview](./assets/usages/import_snippet.gif)
 
-### Export Dev-Environment Snapshot
+### 4. Export Dev-Environment Snapshot
 
 #### Through Command Palette
 
@@ -104,7 +104,7 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 
 ![Preview](./assets/usages/export_snapshot.gif)
 
-### Import Dev-Environment Snapshot
+### 5. Import Dev-Environment Snapshot
 
 #### Through Command Palette
 
@@ -119,7 +119,7 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 
 ![Preview](./assets/usages/import_snapshot.gif)
 
-### Search for Snippets
+### 6. Search for Snippets
 
 #### Through Command Palette
 
