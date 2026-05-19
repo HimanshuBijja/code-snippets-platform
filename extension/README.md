@@ -33,10 +33,6 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 
 - **Native VSCode Extension** — Seamless, In-editor experience without breaking developer flow
 
-### Short Summary
-
-**Snipzen** acts as a ***Google Drive*** specifically tailored for your VS Code editor, ensuring that your favorite blocks of code and your perfect editor environment follow you wherever you go.
-
 ## 🚀 Usage
 
 ### 1. Open Menu / Intro panel
@@ -141,40 +137,9 @@ A productivity platform to import/export/share VS Code snippets & environment sn
 
 
 ## 🧬 Feature Workflows
-
-<details>
-<summary><strong>▶️ View Feature Workflows (Architecture Diagrams)</strong></summary>
+<a href="https://github.com/srinivas-batthula/code-snippets-platform/blob/main/README.md"><strong>▶️ View Feature Workflows (Architecture Diagrams)</strong></a>
 <br>
 
-#### 1. Auth Feature Workflow
-
-<p align="center">
-  <a href="https://raw.githubusercontent.com/srinivas-batthula/code-snippets-platform/refs/heads/main/assets/features/authFlow_codesnippets.svg" target="_blank">
-    <img src="assets/features/authFlow_codesnippets.svg" width="90%" alt="Auth Feature Workflow" />
-  </a>
-</p>
-
----
-
-#### 2. Snippets Feature Workflow
-
-<p align="center">
-  <a href="https://raw.githubusercontent.com/srinivas-batthula/code-snippets-platform/refs/heads/main/assets/features/snippetsFlow_codesnippets.svg" target="_blank">
-    <img src="assets/features/snippetsFlow_codesnippets.svg" width="90%" alt="Snippets Feature Workflow" />
-  </a>
-</p>
-
----
-
-#### 3. Search Feature Workflow
-
-<p align="center">
-  <a href="https://raw.githubusercontent.com/srinivas-batthula/code-snippets-platform/refs/heads/main/assets/features/searchFlow_codesnippets.svg" target="_blank">
-    <img src="assets/features/searchFlow_codesnippets.svg" width="90%" alt="Search Feature Workflow" />
-  </a>
-</p>
-
-</details>
 
 ## 🌍 Real-World Use Cases
 
@@ -230,28 +195,6 @@ snipzen/
 This project is licensed under the MIT License - see the
 [LICENSE](./LICENSE) file for details.
 
-## Analytics
-
-<div align="center">
-  
-![Alt](https://repobeats.axiom.co/api/embed/b80831949b001dad0bba8017cf2c116ec7ad3d8b.svg "Repobeats analytics image")
-
-</div>
-
-## Our Contributors
-
-Thanks goes to these wonderful people:  
-
-<br/>
-
-<div align="center">
-  <a href="https://github.com/srinivas-batthula/code-snippets-platform/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=srinivas-batthula/code-snippets-platform" />
-  </a>
-</div>
-
-<br/>
-
 ## 📬 Contact / Support
 
 - [![Website](https://img.shields.io/badge/Website-Srinivas%20Batthula-blue?style=flat&logo=googlechrome&logoColor=white)](https://srinivas-batthula.me) [![Email](https://img.shields.io/badge/Email-Srinivas%20Batthula-red?style=flat&logo=gmail&logoColor=white)](mailto:srinivasbatthula05.official@gmail.com)
@@ -262,12 +205,3 @@ Thanks goes to these wonderful people:
 
 - **Srinivas Batthula [@srinivas-batthula](https://github.com/srinivas-batthula)**
 - **Himanshu Bijja [@himanshubijja](https://github.com/himanshubijja)**
-
-
-<div align="center">
-
-<p><strong>Made with ❤️ by <a href="https://github.com/srinivas-batthula/code-snippets-platform">SnipZen Team</a></strong></p>
-
-<h3>⭐ Star us on GitHub — it motivates us a lot!</h3>
-
-</div>

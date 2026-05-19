@@ -1,0 +1,57 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: ['*']
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Cache Web dependencies
+      - name: Cache Web node_modules
+        uses: actions/cache@v3
+        with:
+          path: web/node_modules
+          key: web-${{ runner.os }}-node-${{ hashFiles('web/package-lock.json') }}
+      
+      - name: Install & Build Web deps
+        working-directory: ./web
+        env:
+          MONGODB_URI: mongodb://localhost:27017/snipzen-ci
+          GOOGLE_CLIENT_ID: your_client_id
+          GOOGLE_CLIENT_SECRET: your_client_secret
+          GITHUB_CLIENT_ID: your_client_id
+          GITHUB_CLIENT_SECRET: your_client_secret
+          EMAIL_USER: your_email
+          EMAIL_PASS: your_email_password
+          JWT_SECRET: xyz
+          NEXT_PUBLIC_API_URL: http://localhost:3000
+        run: npm install && npm run build
+
+      # Cache Extension dependencies
+      - name: Cache Extension node_modules
+        uses: actions/cache@v3
+        with:
+          path: extension/node_modules
+          key: extension-${{ runner.os }}-node-${{ hashFiles('extension/package-lock.json') }}
+      
+      - name: Install & Build Extension
+        working-directory: ./extension
+        run: npm install && npm run pretest

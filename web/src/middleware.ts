@@ -3,8 +3,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 
-// All protected routes...
-const protectedPaths = ['/profile', '/dashboard', '/api/snippets/upload', '/api/snippets/update', '/api/snapshots/update'];
+const protectedPaths = ['/api/snippets/upload', '/api/snippets/update', '/api/snapshots/update'];
 
 export async function middleware(req: NextRequest) {
     const token = await getToken({ req, secret: process.env.JWT_SECRET });
@@ -22,6 +21,7 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next();
 }
 
+// All protected routes...
 export const config = {
-    matcher: protectedPaths,
+    matcher: ['/api/snippets/upload', '/api/snippets/update', '/api/snapshots/update'],
 };
